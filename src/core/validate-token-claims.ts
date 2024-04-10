@@ -50,15 +50,6 @@ export function validateTokenClaims(
     throw new Error("The token's payload contains different security token service");
   }
 
-  // scopes
-  if (!tokenPayload.scp) {
-    throw new Error('The token\'s payload does not contain "scp" property');
-  }
-
-  if (typeof tokenPayload.scp !== 'string') {
-    throw new Error("The token's payload scopes are not a string value");
-  }
-
   // expiration
   if (!tokenPayload.exp) {
     throw new Error('The token\'s payload does not contain "exp" property');
@@ -72,12 +63,5 @@ export function validateTokenClaims(
 
   if (!isValidExpiration) {
     throw new Error("The token's payload contains different expiration");
-  }
-
-  const scopesAsArray = tokenPayload.scp.split(' ');
-  const hasValidScopes = scopes.every((_scope) => scopesAsArray.includes(_scope));
-
-  if (!hasValidScopes) {
-    throw new Error("The token's payload contains different scopes");
   }
 }
