@@ -1,10 +1,10 @@
 {
-  "name": "validate-azure-ad-token",
+  "name": "validate-azure-ad-token-no-scope",
   "version": "2.2.0",
-  "description": "Function to validate access token received from azure active directory. Useful when you're using a msal library to authenticate users on the frontend and you wanna verify Microsoft tokens in the API.",
+  "description": "Function to validate access token received from azure active directory. Useful when you're using a msal library to authenticate users on the frontend and you wanna verify Microsoft tokens in the API. THIS VERSION WORKS WITH CLIENT_CREDENTIAL FLOW.",
   "license": "MIT",
   "author": "Paweł Wojtasiński <pawel.wojtasinski.1995@gmail.com>",
-  "repository": "git@github.com:playerony/validate-azure-ad-token.git",
+  "repository": "git@github.com:SethKitchen/validate-azure-ad-token-no-scope.git",
   "main": "dist/index.js",
   "files": [
     "/dist"
