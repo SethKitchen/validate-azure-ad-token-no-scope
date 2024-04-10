@@ -26,11 +26,6 @@ export interface IValidationOptions {
   audience: string;
 
   /**
-   * The set of scopes exposed by your application for which the client application has requested (and received) consent.
-   */
-  scopes: string[];
-
-  /**
    * Your Microsoft 365 tenant ID is a globally unique identifier (GUID) that is different than your organization name or domain.
    */
   tenantId: string;
@@ -46,11 +41,8 @@ export interface IValidationOptions {
  */
 export default async function validate(
   accessToken: string,
-  { applicationId, audience, scopes, tenantId }: IValidationOptions,
+  { applicationId, audience, tenantId }: IValidationOptions,
 ): Promise<Jwt> {
-  if (Array.isArray(scopes) && scopes.length === 0) {
-    throw new Error('"scopes" array cannot be empty');
-  }
 
   if (typeof audience !== 'string' || audience.length === 0) {
     throw new Error('"audience" value was not provided');
@@ -77,7 +69,6 @@ export default async function validate(
   await validateTokenHeader(decodedAccessToken.header, tenantId, applicationId);
 
   validateTokenClaims(decodedAccessToken.payload, {
-    scopes,
     audience,
     tenantId,
     applicationId,
