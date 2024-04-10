@@ -1,5 +1,8 @@
-# Validate Azure AD Token
+# Validate Azure AD Token No Scope
+_________________________________________________________
+What I changed from the base branch: A client_credential does not have to have a scp key on the JWT so I am removing that check to allow service-to-service tokens to be validated.
 
+_________________________________________________________
 [![npm](https://img.shields.io/npm/v/validate-azure-ad-token.svg)](https://www.npmjs.com/package/validate-azure-ad-token)
 ![types](https://img.shields.io/badge/types-typescript%20%7C%20flow-blueviolet)
 [![minzip](https://img.shields.io/bundlephobia/minzip/validate-azure-ad-token.svg)](https://www.npmjs.com/package/validate-azure-ad-token)
