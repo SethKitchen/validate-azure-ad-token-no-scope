@@ -4,7 +4,7 @@ import { IValidationOptions } from '..';
 
 export function validateTokenClaims(
   tokenPayload: JwtPayload,
-  { applicationId, audience, scopes, tenantId }: IValidationOptions,
+  { applicationId, audience, tenantId }: IValidationOptions,
 ): void {
   // tenantId
   if (!tokenPayload.tid) {
